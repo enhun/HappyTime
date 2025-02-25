@@ -28,22 +28,23 @@ body {
     border-radius: 50%;
     position: relative;
     overflow: hidden;
-    cursor: pointer; /* 移除圖片游標，用內建游標 */
+    cursor: pointer; /* 內建游標，點擊時顯示槌子 */
 }
 
 .hole::after {
     content: '';
     position: absolute;
-    width: 20px;
-    height: 40px;
-    background: linear-gradient(to bottom, #8B4513 0%, #8B4513 30%, #333 30%, #333 100%); /* 棕色柄 + 黑色頭 */
-    border-radius: 5px;
-    top: -10px;
+    width: 30px; /* 增加寬度，讓槌子更明顯 */
+    height: 50px; /* 增加高度，讓槌子形狀更完整 */
+    background: linear-gradient(to bottom, #8B4513 0%, #8B4513 40%, #333 40%, #333 100%); /* 更明顯的棕色柄和黑色頭 */
+    border-radius: 10px 10px 0 0; /* 圓角讓槌頭更自然 */
+    top: -15px; /* 稍微調整位置，確保在洞上方 */
     left: 50%;
-    transform: translateX(-50%) rotate(-45deg); /* 初始角度 */
+    transform: translateX(-50%) rotate(-30deg); /* 調整初始角度，讓槌子更直觀 */
     transition: transform 0.2s, opacity 0.2s;
     pointer-events: none; /* 避免干擾點擊 */
     opacity: 0; /* 初始隱藏 */
+    z-index: 10; /* 確保在其他元素之上 */
 }
 
 .hole:hover::after,
@@ -102,7 +103,7 @@ body {
 }
 
 .owl.hammer-down {
-    animation: hammer-hit 0.6s ease-in-out; /* 延長動畫時間，效果更明顯 */
+    animation: hammer-hit 0.6s ease-in-out; /* 保持細緻動畫 */
 }
 
 button {
