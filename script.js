@@ -25,7 +25,7 @@ function showOwl() {
     owl.addEventListener('click', hitOwl);
     hole.appendChild(owl);
 
-    setTimeout(() => owl.classList.add('pop'), 10); // 稍微延遲加入動畫效果
+    setTimeout(() => owl.classList.add('pop'), 10);
 
     setTimeout(() => {
         if (hole.contains(owl)) hole.removeChild(owl);
@@ -35,14 +35,14 @@ function showOwl() {
 function hitOwl() {
     score++;
     scoreDisplay.textContent = score;
-    
+
     // 敲擊動畫
     this.classList.add('hammer-down');
     setTimeout(() => {
         this.classList.remove('hammer-down');
         this.parentNode.removeChild(this);
-    }, 100); // 敲擊動畫持續0.1秒
-    
+    }, 200); // 敲擊動畫持續0.2秒
+
     // 被打中時播放叫聲
     owlSound.currentTime = 0;
     owlSound.play();
@@ -72,7 +72,7 @@ function startGame() {
 
     setTimeout(() => {
         clearInterval(gameLoop);
-    }, 15000); // 遊戲持續15秒
+    }, 15000);
 }
 
 function endGame() {
