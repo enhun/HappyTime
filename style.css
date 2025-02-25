@@ -34,17 +34,22 @@ body {
 .hole::after {
     content: '';
     position: absolute;
-    width: 30px; /* 增加寬度，讓槌子更明顯 */
-    height: 50px; /* 增加高度，讓槌子形狀更完整 */
-    background: linear-gradient(to bottom, #8B4513 0%, #8B4513 40%, #333 40%, #333 100%); /* 更明顯的棕色柄和黑色頭 */
-    border-radius: 10px 10px 0 0; /* 圓角讓槌頭更自然 */
-    top: -15px; /* 稍微調整位置，確保在洞上方 */
+    width: 40px; /* 增加寬度，讓槌子更明顯 */
+    height: 60px; /* 增加高度，清楚顯示槌頭和槌柄 */
+    background: linear-gradient(
+        45deg,
+        #8B4513 0% 40%, /* 棕色槌柄，稍微傾斜 */
+        #333 40% 100% /* 黑色槌頭 */
+    );
+    border-radius: 10px 10px 0 0; /* 圓角槌頭 */
+    top: -20px; /* 調整位置，確保在洞上方清晰 */
     left: 50%;
-    transform: translateX(-50%) rotate(-30deg); /* 調整初始角度，讓槌子更直觀 */
+    transform: translateX(-50%) rotate(-30deg); /* 稍微調整初始角度 */
     transition: transform 0.2s, opacity 0.2s;
     pointer-events: none; /* 避免干擾點擊 */
     opacity: 0; /* 初始隱藏 */
     z-index: 10; /* 確保在其他元素之上 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* 添加陰影，讓槌子更有立體感 */
 }
 
 .hole:hover::after,
@@ -53,7 +58,7 @@ body {
 }
 
 .hole:active::after {
-    transform: translateX(-50%) rotate(60deg) scale(1.3); /* 敲擊時更大角度和放大 */
+    transform: translateX(-50%) rotate(75deg) scale(1.4); /* 更大的旋轉和放大，動作更誇張 */
 }
 
 .owl {
@@ -89,11 +94,11 @@ body {
         opacity: 1;
     }
     30% {
-        transform: translateY(-30px) rotate(60deg) scale(1.2); /* 更大上移和旋轉，稍微放大 */
+        transform: translateY(-40px) rotate(75deg) scale(1.3); /* 更大上移和旋轉，稍微放大 */
         opacity: 0.8;
     }
     70% {
-        transform: translateY(20px) rotate(60deg) scale(0.8); /* 更大下壓並微縮 */
+        transform: translateY(25px) rotate(75deg) scale(0.8); /* 更大下壓並微縮 */
         opacity: 1;
     }
     100% {
@@ -103,7 +108,7 @@ body {
 }
 
 .owl.hammer-down {
-    animation: hammer-hit 0.6s ease-in-out; /* 保持細緻動畫 */
+    animation: hammer-hit 0.7s ease-in-out; /* 延長動畫時間，動作更明顯 */
 }
 
 button {
