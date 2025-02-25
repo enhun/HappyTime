@@ -41,7 +41,7 @@ function hitOwl() {
     setTimeout(() => {
         this.classList.remove('hammer-down');
         this.parentNode.removeChild(this);
-    }, 200); // 敲擊動畫持續0.2秒
+    }, 500); // 動畫時間與 CSS 一致
 
     // 被打中時播放叫聲
     owlSound.currentTime = 0;
