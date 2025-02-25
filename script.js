@@ -24,7 +24,6 @@ function showOwl() {
     owl.classList.add('owl');
     owl.addEventListener('click', hitOwl);
     hole.appendChild(owl);
-    owlSound.play();
 
     setTimeout(() => owl.classList.add('pop'), 10); // 稍微延遲加入動畫效果
 
@@ -36,7 +35,15 @@ function showOwl() {
 function hitOwl() {
     score++;
     scoreDisplay.textContent = score;
-    this.parentNode.removeChild(this);
+    
+    // 敲擊動畫
+    this.classList.add('hammer-down');
+    setTimeout(() => {
+        this.classList.remove('hammer-down');
+        this.parentNode.removeChild(this);
+    }, 100); // 敲擊動畫持續0.1秒
+    
+    // 被打中時播放叫聲
     owlSound.currentTime = 0;
     owlSound.play();
 }
@@ -60,7 +67,7 @@ function startGame() {
     startButton.textContent = '遊戲進行中...';
     startButton.disabled = true;
 
-    const gameLoop = setInterval(showOwl, 1000); // 貓頭鷹出現頻率加快一點
+    const gameLoop = setInterval(showOwl, 1000);
     timer = setInterval(updateTimer, 1000);
 
     setTimeout(() => {
