@@ -34,22 +34,23 @@ body {
 .hole::after {
     content: '';
     position: absolute;
-    width: 40px; /* 增加寬度，讓槌子更明顯 */
-    height: 60px; /* 增加高度，清楚顯示槌頭和槌柄 */
+    width: 40px; /* 增加寬度，模擬槌子頭和柄 */
+    height: 60px; /* 模擬槌子的總長度 */
     background: linear-gradient(
         45deg,
-        #8B4513 0% 40%, /* 棕色槌柄，稍微傾斜 */
-        #333 40% 100% /* 黑色槌頭 */
+        #8B4513 0% 50%, /* 棕色木柄，占一半 */
+        #333 50% 70%, /* 黑色槌頭 */
+        #666 70% 100% /* 灰色條紋 */
     );
     border-radius: 10px 10px 0 0; /* 圓角槌頭 */
     top: -20px; /* 調整位置，確保在洞上方清晰 */
     left: 50%;
-    transform: translateX(-50%) rotate(-30deg); /* 稍微調整初始角度 */
+    transform: translateX(-50%) rotate(-30deg); /* 初始角度，模擬手持 */
     transition: transform 0.2s, opacity 0.2s;
     pointer-events: none; /* 避免干擾點擊 */
     opacity: 0; /* 初始隱藏 */
     z-index: 10; /* 確保在其他元素之上 */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* 添加陰影，讓槌子更有立體感 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* 添加陰影，增加立體感 */
 }
 
 .hole:hover::after,
@@ -108,7 +109,7 @@ body {
 }
 
 .owl.hammer-down {
-    animation: hammer-hit 0.7s ease-in-out; /* 延長動畫時間，動作更明顯 */
+    animation: hammer-hit 0.7s ease-in-out; /* 保持細緻動畫 */
 }
 
 button {
