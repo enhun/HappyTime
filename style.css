@@ -6,6 +6,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
+    position: relative;
 }
 
 .game-container {
@@ -27,7 +28,29 @@ body {
     border-radius: 50%;
     position: relative;
     overflow: hidden;
-    cursor: url('hammer.png'), auto; /* 確認這裡的路徑正確 */
+    cursor: pointer; /* 移除自定義游標，改用點擊手勢 */
+}
+
+.hole::after {
+    content: url('hammer.png'); /* 顯示槌子圖片 */
+    position: absolute;
+    width: 32px; /* 調整大小 */
+    height: 32px;
+    top: -10px; /* 調整位置 */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0; /* 初始隱藏 */
+    transition: transform 0.2s, opacity 0.2s;
+    pointer-events: none; /* 避免干擾點擊 */
+}
+
+.hole:hover::after,
+.hole:active::after {
+    opacity: 1; /* 滑鼠移入或點擊時顯示 */
+}
+
+.hole:active::after {
+    transform: translateX(-50%) rotate(30deg); /* 模擬敲擊 */
 }
 
 .owl {
@@ -55,16 +78,6 @@ body {
 
 .owl.pop {
     animation: bounce 0.5s;
-}
-
-@keyframes hammer {
-    0% { transform: rotate(0deg); }
-    50% { transform: rotate(30deg); } /* 敲擊時旋轉 */
-    100% { transform: rotate(0deg); }
-}
-
-.owl.hammer-down {
-    animation: hammer 0.2s ease-in-out; /* 敲擊動畫 */
 }
 
 button {
