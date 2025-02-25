@@ -34,7 +34,7 @@ body {
     width: 80px;
     height: 80px;
     background-image: url('owl.png'); /* 使用你的貓頭鷹圖片 */
-    background-size: cover; /* 確保圖片填滿 */
+    background-size: contain; /* 保持圖片比例 */
     background-position: center;
     border-radius: 50%; /* 如果圖片不是圓形，保持圓形邊框 */
     position: absolute;
