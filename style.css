@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.game-container {
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+    margin: 20px auto;
+    width: 320px;
+}
+
+.hole {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.owl {
+    width: 80px;
+    height: 80px;
+    background-image: url('owl.png'); /* 使用你的貓頭鷹圖片 */
+    background-size: cover; /* 確保圖片填滿 */
+    background-position: center;
+    border-radius: 50%; /* 如果圖片不是圓形，保持圓形邊框 */
+    position: absolute;
+    bottom: -80px; /* 初始位置在洞底 */
+    left: 10px;
+    transition: bottom 0.3s ease-in-out;
+}
+
+.owl.pop {
+    bottom: 10px; /* 冒出來的目標位置 */
+}
+
+@keyframes bounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.owl.pop {
+    animation: bounce 0.5s;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
