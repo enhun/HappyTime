@@ -26,25 +26,25 @@ body {
     background-color: #ccc;
     border-radius: 50%;
     position: relative;
-    cursor: pointer;
     overflow: hidden;
+    cursor: url('hammer.png'), auto; /* 將游標設為槌子 */
 }
 
 .owl {
     width: 80px;
     height: 80px;
-    background-image: url('owl.png'); /* 使用你的貓頭鷹圖片 */
-    background-size: contain; /* 保持圖片比例 */
+    background-image: url('owl.png'); /* 你的貓頭鷹圖片 */
+    background-size: cover;
     background-position: center;
-    border-radius: 50%; /* 如果圖片不是圓形，保持圓形邊框 */
+    border-radius: 50%;
     position: absolute;
-    bottom: -80px; /* 初始位置在洞底 */
+    bottom: -80px;
     left: 10px;
     transition: bottom 0.3s ease-in-out;
 }
 
 .owl.pop {
-    bottom: 10px; /* 冒出來的目標位置 */
+    bottom: 10px;
 }
 
 @keyframes bounce {
@@ -66,4 +66,14 @@ button {
 button:disabled {
     cursor: not-allowed;
     opacity: 0.6;
+}
+
+/* 敲擊動畫 */
+.hole:active {
+    cursor: url('hammer.png'), auto; /* 保持槌子圖案 */
+}
+
+.owl.hammer-down {
+    transform: rotate(20deg); /* 模擬槌子敲擊的角度 */
+    transition: transform 0.1s;
 }
